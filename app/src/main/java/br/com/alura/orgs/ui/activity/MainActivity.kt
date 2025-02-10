@@ -1,12 +1,14 @@
 package br.com.alura.orgs.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import br.com.alura.orgs.R
-import br.com.alura.orgs.model.Produto
+import br.com.alura.orgs.dao.ProdutosDao
 import br.com.alura.orgs.ui.recyclerview.adapter.ListaProdutosAdapter
-import java.math.BigDecimal
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity :
     AppCompatActivity(R.layout.activity_main) {
@@ -15,20 +17,16 @@ class MainActivity :
         super.onCreate(savedInstanceState)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-        recyclerView.adapter = ListaProdutosAdapter(context = this, produtos = listOf(
-                Produto(nome = "teste",
-                        descricao = "teste desc",
-                        valor = BigDecimal("19.99")
-                ),
-                Produto(nome = "teste 1",
-                        descricao = "teste desc 1",
-                        valor = BigDecimal("29.99")
-                ),
-                Produto(nome = "teste 2",
-                        descricao = "teste desc 2",
-                        valor = BigDecimal("39.99")
-                ),
-        ))
+        val dao = ProdutosDao()
+
+        Log.i("MainActivity", "onCreate: ${dao.buscaTodos()}")
+        recyclerView.adapter = ListaProdutosAdapter(context = this, produtos = dao.buscaTodos())
+
+        val fab = findViewById<FloatingActionButton>(R.id.floatingActionButton)
+        fab.setOnClickListener {
+            val intent = Intent(this, FormularioProduto::class.java)
+            startActivity(intent)
+        }
 
     }
 
