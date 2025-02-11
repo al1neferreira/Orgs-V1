@@ -16,6 +16,11 @@ class MainActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         val dao = ProdutosDao()
 
@@ -27,7 +32,6 @@ class MainActivity :
             val intent = Intent(this, FormularioProduto::class.java)
             startActivity(intent)
         }
-
     }
 
 }
