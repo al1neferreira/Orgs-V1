@@ -19,15 +19,15 @@ class FormularioProduto :
         val view = binding.root
         setContentView(view)
 
-        val botaoSalvar = binding.btnSalvar
+        val botaoSalvar = binding.activityFormularioProdutoBotaoSalvar
 
         botaoSalvar.setOnClickListener {
 
-            val campoNome = binding.nome
+            val campoNome = binding.activityFormularioProdutoNome
             val nome = campoNome.text.toString()
-            val campoDesricao = binding.descricao
+            val campoDesricao = binding.activityFormularioProdutoDescricao
             val descricao = campoDesricao.text.toString()
-            val campoValor = binding.valor
+            val campoValor = binding.activityFormularioProdutoValor
             val valorEmTexto = campoValor.text.toString()
             val valor = if (valorEmTexto.isBlank()) {
                 BigDecimal.ZERO
