@@ -2,6 +2,7 @@ package br.com.alura.orgs.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import br.com.alura.orgs.dao.ProdutosDao
 import br.com.alura.orgs.databinding.ActivityListaProdutosBinding
@@ -21,6 +22,15 @@ class ListaProdutosActivity :
         setContentView(view)
         configuraRecyclerView()
         configuraFab()
+        AlertDialog.Builder(this)
+            .setTitle("Atenção")
+            .setMessage("Deseja realmente sair?")
+            .setPositiveButton("Sim") { _, _ ->
+                finish()
+            }
+            .setNegativeButton("Não", null)
+            .create()
+            .show()
 
     }
 
