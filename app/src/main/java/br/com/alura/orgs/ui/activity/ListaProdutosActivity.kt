@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import br.com.alura.orgs.R
 import br.com.alura.orgs.dao.ProdutosDao
 import br.com.alura.orgs.databinding.ActivityListaProdutosBinding
 import br.com.alura.orgs.ui.recyclerview.adapter.ListaProdutosAdapter
@@ -25,6 +26,7 @@ class ListaProdutosActivity :
         AlertDialog.Builder(this)
             .setTitle("Atenção")
             .setMessage("Deseja realmente sair?")
+            .setView(R.layout.formulario_imagem)
             .setPositiveButton("Sim") { _, _ ->
                 finish()
             }
