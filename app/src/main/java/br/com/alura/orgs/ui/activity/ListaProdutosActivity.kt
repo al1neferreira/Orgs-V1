@@ -2,9 +2,7 @@ package br.com.alura.orgs.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import br.com.alura.orgs.R
 import br.com.alura.orgs.dao.ProdutosDao
 import br.com.alura.orgs.databinding.ActivityListaProdutosBinding
 import br.com.alura.orgs.ui.recyclerview.adapter.ListaProdutosAdapter
@@ -23,17 +21,6 @@ class ListaProdutosActivity :
         setContentView(view)
         configuraRecyclerView()
         configuraFab()
-        AlertDialog.Builder(this)
-            .setTitle("Atenção")
-            .setMessage("Deseja realmente sair?")
-            .setView(R.layout.formulario_imagem)
-            .setPositiveButton("Sim") { _, _ ->
-                finish()
-            }
-            .setNegativeButton("Não", null)
-            .create()
-            .show()
-
     }
 
     override fun onResume() {
@@ -45,7 +32,7 @@ class ListaProdutosActivity :
     private fun configuraFab() {
         val fab = binding.floatingActionButton
         fab.setOnClickListener {
-          vaiParaFormularioProduto()
+            vaiParaFormularioProduto()
         }
     }
 
