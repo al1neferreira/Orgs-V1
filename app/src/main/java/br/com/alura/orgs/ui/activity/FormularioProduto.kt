@@ -15,6 +15,8 @@ class FormularioProduto :
 
     private lateinit var binding: ActivityFormularioProdutoBinding
 
+    private var url: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFormularioProdutoBinding.inflate(layoutInflater)
@@ -25,7 +27,7 @@ class FormularioProduto :
         binding.activityFormularioProdutoImagem.setOnClickListener {
             val bindingFormularioImagem = FormularioImagemBinding.inflate(layoutInflater)
             bindingFormularioImagem.formularioImagemBotaoCarregar.setOnClickListener {
-                val url = bindingFormularioImagem.formularioImagemUrl.text.toString()
+             url = bindingFormularioImagem.formularioImagemUrl.text.toString()
                 bindingFormularioImagem.formularioImagemImageview.load(url)
             }
 
@@ -71,7 +73,8 @@ class FormularioProduto :
         return Produto(
             nome = nome,
             descricao = descricao,
-            valor = valor
+            valor = valor,
+            imagem = url
         )
     }
 }
