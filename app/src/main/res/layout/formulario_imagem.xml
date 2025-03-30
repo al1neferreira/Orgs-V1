@@ -19,6 +19,17 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/imagem_padrao" />
 
+        <ImageView
+            android:id="@+id/loading_Image"
+            android:visibility="invisible"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/new_loading"/>
+
         <Button
             android:id="@+id/formulario_imagem_botao_carregar"
             android:layout_width="wrap_content"
