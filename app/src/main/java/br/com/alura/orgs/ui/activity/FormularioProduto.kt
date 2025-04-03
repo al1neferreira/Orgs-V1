@@ -20,15 +20,15 @@ class FormularioProduto :
         super.onCreate(savedInstanceState)
         binding = ActivityFormularioProdutoBinding.inflate(layoutInflater)
         val view = binding.root
+        title = "Cadastrar produto"
         setContentView(view)
         configuraBotaoSalvar()
 
         binding.activityFormularioProdutoImagem.setOnClickListener {
             FormularioImageDialog(this)
-                .mostrarDialog{ imagem ->
+                .mostrarDialog(url){ imagem ->
                     url = imagem
                     binding.activityFormularioProdutoImagem.carregarImagem(url)
-                    
                 }
         }
     }
